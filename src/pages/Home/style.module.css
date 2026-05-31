@@ -26,6 +26,10 @@
   cursor: not-allowed;
 }
 
+.loader {
+  display: flex;
+}
+
 .error {
   color: var(--error-red, #f87171);
   font-size: 0.875rem;
