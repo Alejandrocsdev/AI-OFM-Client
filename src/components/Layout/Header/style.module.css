@@ -1,0 +1,82 @@
+.header {
+  padding: 0.5rem;
+  height: var(--header-height);
+  background-color: var(--bg-secondary);
+  display: flex;
+}
+
+.left,
+.right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.left {
+  justify-content: left;
+}
+
+.right {
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 0.5rem;
+}
+
+.userName {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.logoutBtn {
+  font-size: 0.8rem;
+  color: var(--accent-primary);
+  cursor: pointer;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--accent-primary);
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 8px;
+  cursor: default;
+  user-select: none;
+  background:
+    linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+    linear-gradient(135deg, hsl(245, 75%, 65%), hsl(28, 95%, 60%)) border-box;
+  border: 1px solid transparent;
+}
+
+.logoAi {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, hsl(245, 75%, 72%), hsl(180, 100%, 58%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.logoDivider {
+  width: 1px;
+  height: 0.85rem;
+  background: linear-gradient(180deg, hsl(245, 75%, 65%), hsl(28, 95%, 60%));
+  opacity: 0.45;
+  flex-shrink: 0;
+}
+
+.logoOfm {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  color: hsl(28, 95%, 60%);
+}
