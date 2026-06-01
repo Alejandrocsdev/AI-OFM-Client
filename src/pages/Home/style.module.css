@@ -5,44 +5,278 @@
   gap: 1.5rem;
 }
 
-.btn {
-  align-self: flex-start;
-  padding: 0.5rem 1.25rem;
-  border-radius: 8px;
-  border: 1px solid var(--accent-primary);
-  background: transparent;
-  color: var(--accent-primary);
+/* Center states */
+.centerState {
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.errorText {
   font-size: 0.875rem;
+  color: var(--error-red);
+}
+
+.emptyText {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+/* Warning banner */
+.warningBanner {
+  padding: 0.75rem 1.25rem;
+  background: hsl(40, 80%, 12%);
+  border: 1px solid hsl(40, 80%, 28%);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  color: hsl(40, 90%, 70%);
+}
+
+/* ── Instance card ─────────────────────────────── */
+.instanceCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Header row */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconBox {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  background: hsl(250, 45%, 16%);
+  border: 1px solid hsl(250, 45%, 26%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.idBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.875rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.idLabel {
+  font-size: 0.8125rem;
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.idValue {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.gpuName {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
+}
+
+.statusDot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dotGreen {
+  background: var(--active-green);
+  box-shadow: 0 0 6px var(--active-green);
+}
+
+.dotRed {
+  background: var(--inactive-red);
+}
+
+.statusText {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.textGreen {
+  color: var(--active-green);
+}
+
+.textMuted {
+  color: var(--text-secondary);
+}
+
+.hourlyCost {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+/* ── Card body ─────────────────────────────────── */
+.cardBody {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 9rem;
+}
+
+/* Left: app buttons */
+.appButtons {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+}
+
+.appBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0 1.25rem;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  text-decoration: none;
+  transition: background 0.15s;
 }
 
-.btn:hover:not(:disabled) {
-  background-color: rgba(255, 255, 255, 0.06);
+.appBtn:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
 }
 
-.btn:disabled {
-  opacity: 0.5;
+.appBtn:hover:not(.appBtnDisabled) {
+  background: hsl(225, 20%, 18%);
+}
+
+.appBtnDisabled {
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-.loader {
+.appIcon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Right: control buttons */
+.controlButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.actionBtn {
   display: flex;
-}
-
-.error {
-  color: var(--error-red, #f87171);
-  font-size: 0.875rem;
-}
-
-.response {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-all;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
   color: var(--text-primary);
+  transition: filter 0.15s;
+}
+
+.actionBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.actionBtn:not(:disabled):hover {
+  filter: brightness(1.2);
+}
+
+.startBtn {
+  grid-column: 1;
+  grid-row: 1;
+  background: hsl(140, 55%, 15%);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  color: hsl(140, 70%, 60%);
+}
+
+.stopBtn {
+  grid-column: 1;
+  grid-row: 1;
+  background: hsl(30, 65%, 14%);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  color: hsl(30, 90%, 62%);
+}
+
+.restartBtn {
+  grid-column: 2;
+  grid-row: 1;
+  background: hsl(225, 25%, 13%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.deleteBtn {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  background: hsl(355, 50%, 14%);
+  color: hsl(355, 85%, 65%);
+}
+
+/* ── Card footer (volume row) ──────────────────── */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.volumeIconBox {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  background: hsl(250, 45%, 16%);
+  border: 1px solid hsl(250, 45%, 26%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.storageInfo {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
