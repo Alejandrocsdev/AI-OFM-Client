@@ -24,8 +24,27 @@
 }
 
 .userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.8125rem;
-  color: var(--text-secondary);
+}
+
+.userId {
+  color: var(--text-tertiary, #6b7280);
+}
+
+.username {
+  color: var(--text-secondary, #9ca3af);
+}
+
+.credit {
+  color: hsl(142, 70%, 55%);
+}
+
+.divider {
+  color: var(--text-tertiary, #6b7280);
+  opacity: 0.4;
 }
 
 .logo {

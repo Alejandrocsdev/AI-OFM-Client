@@ -12,7 +12,7 @@ const Header = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get(`${VITE_SERVER_URL}/api/vast`)
+    axios.get(`${VITE_SERVER_URL}/api/vast/users`)
       .then((res) => setUser(res.data))
       .catch(() => setUser(null));
   }, []);
@@ -27,9 +27,17 @@ const Header = () => {
         </div>
       </div>
       <div className={S.right}>
-        {user === null 
-          ? (<Loader color="var(--accent-primary)" width={40} height={10} />) 
-          : (<span className={S.userInfo}>{user.id} | {user.username}</span>)}
+        {user === null ? (
+          <Loader color="var(--accent-primary)" width={40} height={10} />
+        ) : (
+          <div className={S.userInfo}>
+            <span className={S.userId}>{user.id}</span>
+            <span className={S.divider}>|</span>
+            <span className={S.username}>{user.username}</span>
+            <span className={S.divider}>|</span>
+            <span className={S.credit}>${user.credit.toFixed(2)}</span>
+          </div>
+        )}
       </div>
     </header>
   );
